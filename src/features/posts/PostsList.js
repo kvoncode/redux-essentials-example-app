@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { ReactionButtons } from './ReactionButtons'
 export const PostsList = () => {
   const posts = useSelector((state) => state.posts)
-
 
   const orderedPosts = posts
     .slice()
@@ -17,6 +17,7 @@ export const PostsList = () => {
         <Link to={`/posts/${post.id}`} className="button muted-button">
           View Post
         </Link>
+        <ReactionButtons post={post}></ReactionButtons>
       </article>
     )
   })
